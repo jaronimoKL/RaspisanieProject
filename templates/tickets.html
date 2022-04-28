@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Создать таск{% endblock %}
+{% block content %}
+    <h1 class="display-4 fw-normal">Создать таск</h1>
+    <form method="post">
+            {% csrf_token %}
+    <table>
+        <tr>
+            <th>Дата</th>
+            <th>День</th>
+            <th>1 пара</th>
+            <th>Кабинет</th>
+            <th>2 пара</th>
+            <th>Кабинет</th>
+            <th>3 пара</th>
+            <th>Кабинет</th>
+            <th>4 пара</th>
+            <th>Кабинет</th>
+            <th>5 пара</th>
+            <th>Кабинет</th>
+            <th>6 пара</th>
+            <th>Кабинет</th>
+        </tr>
+        <tr>
+            <td>{{ form.data }}</td>
+            <td>{{ form.day }}</td>
+            <td>{{ form.para1 }}</td>
+            <td>{{ form.kab1 }}</td>
+            <td>{{ form.para2 }}</td>
+            <td>{{ form.kab2 }}</td>
+            <td>{{ form.para3 }}</td>
+            <td>{{ form.kab3 }}</td>
+            <td>{{ form.para4 }}</td>
+            <td>{{ form.kab4 }}</td>
+            <td>{{ form.para5 }}</td>
+            <td>{{ form.kab5 }}</td>
+            <td>{{ form.para6 }}</td>
+            <td>{{ form.kab6 }}</td>
+        </tr>
+    </table>
+{#        {% load verbose_names %}#}
+{#        {% get_verbose_field_name test_instance "name" %}#}
+
+        <button type="submit" class="btn btn-success">Добавить</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}
