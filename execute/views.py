@@ -2,12 +2,11 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from execute.forms import TaskForm
-from execute.models import Task
+from execute.models import Raspisanie
 
 
 def index(request):
-    tasks = Task.objects.order_by('-id')
-    # order_by - сортирует по конкретному полю ('title')[:5] - ограничил до 5 записей
+    tasks = Raspisanie.objects.order_by('-id')
     return render(request, '../templates/index.html', {'title': 'Главная страница сайта', 'tasks': tasks})
 
 
