@@ -1,47 +1,78 @@
-{% extends 'base.html' %}
-{% block title %}Создать таск{% endblock %}
-{% block content %}
-    <h1 class="display-4 fw-normal">Создать таск</h1>
-    <form method="post">
-            {% csrf_token %}
-    <table>
-        <tr>
-            <th>Дата</th>
-            <th>День</th>
-            <th>1 пара</th>
-            <th>Кабинет</th>
-            <th>2 пара</th>
-            <th>Кабинет</th>
-            <th>3 пара</th>
-            <th>Кабинет</th>
-            <th>4 пара</th>
-            <th>Кабинет</th>
-            <th>5 пара</th>
-            <th>Кабинет</th>
-            <th>6 пара</th>
-            <th>Кабинет</th>
-        </tr>
-        <tr>
-            <td>{{ form.number }}</td>
-            <td>{{ form.data }}</td>
-            <td>{{ form.group }}</td>
-            <td>{{ form.kabinet }}</td>
-            <td>{{ form.last_name }}</td>
-            <td>{{ form.kab2 }}</td>
-            <td>{{ form.para3 }}</td>
-            <td>{{ form.kab3 }}</td>
-            <td>{{ form.para4 }}</td>
-            <td>{{ form.kab4 }}</td>
-            <td>{{ form.para5 }}</td>
-            <td>{{ form.kab5 }}</td>
-            <td>{{ form.para6 }}</td>
-            <td>{{ form.kab6 }}</td>
-        </tr>
-    </table>
+{#{% extends 'base.html' %}#}
+{#{% block title %}Создать таск{% endblock %}#}
+{#{% block content %}#}
+{#    <h1 class="display-4 fw-normal">Создать таск</h1>#}
+{#    <form method="post">#}
+{#            {% csrf_token %}#}
+{#    <table>#}
+{#        #}
+{#    </table>#}
 {#        {% load verbose_names %}#}
 {#        {% get_verbose_field_name test_instance "name" %}#}
+{##}
+{#        <button type="submit" class="btn btn-success">Добавить</button>#}
+{#        <span>{{ error }}</span>#}
+{#    </form>#}
+{#{% endblock %}#}
 
-        <button type="submit" class="btn btn-success">Добавить</button>
-        <span>{{ error }}</span>
-    </form>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Доступ к расписанию УРТК им. Попова в 1 клик 🚀" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png?v=2">
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png?v=2">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=2" color="#5bbad5">
+  <link rel="shortcut icon" href="/favicon.ico?v=2">
+  <meta name="apple-mobile-web-app-title" content="Уртк.Расписание">
+  <meta name="application-name" content="Уртк.Расписание">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="manifest" href="/manifest.json" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZX8DRL2RW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6ZX8DRL2RW');
+  </script>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Уртк.Расписание</title>
+  <script type="module" crossorigin src="/assets/index.0b08ecad.js"></script>
+  <link rel="stylesheet" href="/assets/index.dda439bb.css">
+<link rel="manifest" href="/manifest.webmanifest"><script async src='/cdn-cgi/challenge-platform/h/g/scripts/invisible.js?ts=1651654800'></script></head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('worker.js').then(function (registration) {
+          console.log('Worker registration successful', registration.scope);
+        }, function (err) {
+          console.log('Worker registration failed', err);
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+    } else {
+      console.log('Service Worker is not supported by browser.');
+    }
+  </script> -->
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'706049e48e3677aa',m:'oExCY5dmSmblNuJqW4r4AvkicdQ5TGlm1h5U61dApaY-1651657370-0-AdyQIVXaGCzo7U160NUZBptkzZ0H9EB9aC3L6vbydcDqhL7/G51LuIBadDBs34HUj7inwFAmcuuQXpzx8/YYnB1CAZ+nqOPvuQRgPf920sPvSh2AGtpYl8K57eU/evQtkw==',s:[0x98a2ab00fa,0xf75586a703],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+
+</html>

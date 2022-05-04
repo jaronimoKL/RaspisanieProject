@@ -1,16 +1,55 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-    <h1 class="display-4 fw-normal">Главная страница</h1>
-    {% if tasks %}
-    {%  for el in tasks %}
-        <div class="alert alert-warning mt-2 ">
-        <h3>{{ el.data }}</h3>
-        <p>{{ el.day }}</p>
 
+    <h1 class="display-4 fw-normal">Главная страница</h1>
+{#   <div class="search_box">#}
+{#	<form action="">#}
+{#		<input type="text" name="search" id="search" placeholder="Введите город">#}
+{#		<input type="submit">#}
+{#	</form>#}
+{#	<div id="search_box-result"></div>#}
+{#    </div>#}
+
+    <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+    </div>
+
+
+    {% if para %}
+{#    {%  for el in para %}#}
+        <div class="alert alert-warning mt-2 ">
+{#        <h3>{{ el.data }}</h3>#}
+{#        <p>{{ el.last_name }}</p>#}
+            <table class="table table-sm">
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for el in para %}
+                <tr>
+                    <td>{{ el.number }}</td>
+                    <td>{{ el.data }}</td>
+                    <td>{{ el.last_name }}</td>
+                    <td>{{ el.group }}</td>
+                    <td>{{ el.kabinet }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            <img src="{% static 'img/Mega_Supir_Pupir_Art.jpeg' %}" alt="">
+            <select name="" id="">
+                <option value="">Лево</option>
+                <option value="">Право</option>
+                <option value="">Центро</option>
+            </select>
         </div>
-    {% endfor %}
-    {% else %}
-        <p>У нас нет записей!</p>
+{#    {% endfor %}#}
+{#    {% else %}#}
+{#        <p>У нас нет записей!</p>#}
     {% endif %}
 {% endblock %}

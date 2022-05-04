@@ -39,13 +39,13 @@ class Prepod(models.Model):
 
 
 class Raspisanie(models.Model):
-    number = models.CharField('Номер пары', max_length=55, default='')
+    number = models.PositiveSmallIntegerField('Номер пары', default=0)
     data = models.DateField('Дата пары', max_length=55, default='')
     group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
     kabinet = models.ForeignKey(Kabinet, on_delete=models.SET_NULL, null=True)
     last_name = models.ForeignKey(Prepod, on_delete=models.SET_NULL, null=True)
 
-    def __str__(self):
+    def __int__(self):
         return self.number
 
     class Meta:
