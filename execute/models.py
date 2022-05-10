@@ -3,51 +3,53 @@ from django.db import models
 
 class Group(models.Model):
     # Группы
-    name = models.CharField('Название группы', max_length=55, default='')
+    group_name = models.CharField("Группа", max_length=20, default='')
 
     def __str__(self):
-        return self.name
+        return f"{self.group_name}"
 
     class Meta:
-        verbose_name = 'Группы'
+        verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
 
 
-class Kabinet(models.Model):
+class Cabinet(models.Model):
     # Кабинеты
-    name = models.CharField('Название кабинета', max_length=55, default='')
+    cabinet_name = models.CharField('Кабинета', max_length=55, default='')
 
     def __str__(self):
-        return self.name
+        return f"{self.cabinet_name}"
 
     class Meta:
         verbose_name = 'Кабинет'
         verbose_name_plural = 'Кабинеты'
 
 
-class Prepod(models.Model):
-    last_name = models.CharField('Фамилия Преподавателя', max_length=55, default='')
-    first_name = models.CharField('Имя Преподавателя', max_length=55, default='')
-    third_name = models.CharField('Отчество Преподавателя', max_length=55, default='')
+class Teacher(models.Model):
+    last_name = models.CharField('Фамилия Преподавателя', max_length=55)
+    first_name = models.CharField('Имя Преподавателя', max_length=55)
+    third_name = models.CharField('Отчество Преподавателя', max_length=55)
 
     def __str__(self):
-        return self.last_name
+        return f"{self.last_name}"
 
     class Meta:
         verbose_name = 'ФИО Преподавателей'
         verbose_name_plural = 'Преподаватели'
 
 
-class Raspisanie(models.Model):
-    number = models.PositiveSmallIntegerField('Номер пары', default=0)
-    data = models.DateField('Дата пары', max_length=55, default='')
-    group = models.ForeignKey(Group, on_delete=models.SET_NULL, null=True)
-    kabinet = models.ForeignKey(Kabinet, on_delete=models.SET_NULL, null=True)
-    last_name = models.ForeignKey(Prepod, on_delete=models.SET_NULL, null=True)
+class Pair(models.Model):
+    number = models.PositiveSmallIntegerField('Номер пары', default=1)
+    date = models.DateField('Дата пары')
+    group = models.ForeignKey(Group,verbose_name="Группа", on_delete=models.CASCADE)
+    cabinet = models.ForeignKey(Cabinet, verbose_name="Кабинет", on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, verbose_name="Преподаватель", on_delete=models.CASCADE)
+    shortcut = models.BooleanField('Сокращенный день?', default=False)
 
-    def __int__(self):
-        return self.number
+
+    def __str__(self):
+        return f"{self.date} - {self.teacher.last_name} - {self.group} - {self.cabinet}"
 
     class Meta:
-        verbose_name = 'Расписание пары'
+        verbose_name = 'Расписание'
         verbose_name_plural = 'Расписание'
